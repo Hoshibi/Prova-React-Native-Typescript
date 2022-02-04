@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { Text } from 'react-native';
-import AccountEditContainer from '../components/AccountEditContainer';
+import { AccountEditContainer } from '../components';
 
 export function UpdateMyUser() {
 

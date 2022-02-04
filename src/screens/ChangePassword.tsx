@@ -1,7 +1,6 @@
 import React from 'react';
 
-import FormAuthContainer from '../components/FormAuthContainer/index'
-import Input from '../components/Input';
+import { FormAuthContainer, Input } from '../components';
 
 export function ChangePassword({navigation}: any) {
 

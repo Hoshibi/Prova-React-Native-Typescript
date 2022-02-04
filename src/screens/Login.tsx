@@ -1,8 +1,6 @@
 import React from 'react';
 
-import FormAuthContainer from '../components/FormAuthContainer/index'
-import Input from '../components/Input';
-import ResetPasswordLink from '../components/ResetPasswordLink';
+import { FormAuthContainer, Input, ResetPasswordLink } from '../components';
 
 export function Login({navigation}: any) {
 

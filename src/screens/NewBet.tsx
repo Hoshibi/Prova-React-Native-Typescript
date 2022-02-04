@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { Text } from 'react-native';
-import LotteryContainer from '../components/LotteryContainer';
+import { LotteryContainer } from '../components';
 
 export function NewBet() {
   return (

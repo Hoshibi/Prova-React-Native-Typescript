@@ -1,6 +1,7 @@
 import React from "react";
 import { Text } from "react-native";
-import CartContainer from "../components/CartContainer";
+
+import { CartContainer } from "../components";
 
 export function Cart() {
     return(

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import AccountContainer from '../components/AccountContainer';
+import { AccountContainer } from '../components';
 
 export function Account({navigation}: any) {
 
