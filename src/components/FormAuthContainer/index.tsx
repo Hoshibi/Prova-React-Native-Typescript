@@ -22,7 +22,7 @@ const FormAuthContainer: React.FC<PropsType> = ({children,title,btnGreenTitle,bt
           {children}
 
           {/* Btn Green */}
-          <TouchableOpacity onPress={onPressBtnGreen}>
+          <TouchableOpacity activeOpacity={0.5} onPress={onPressBtnGreen}>
             <BtnGreen>
               <TextBtnGreen>{btnGreenTitle}</TextBtnGreen>
               <IconGreen>

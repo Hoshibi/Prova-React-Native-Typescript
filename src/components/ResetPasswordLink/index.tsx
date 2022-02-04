@@ -9,7 +9,7 @@ interface PropsType {
 
 const ResetPasswordLink: React.FC<PropsType> = ({onPress}) => {
     return (
-        <TouchableOpacity onPress={onPress}>
+        <TouchableOpacity activeOpacity={0.5} onPress={onPress}>
             <StyledLink>I forgot my password</StyledLink>
         </TouchableOpacity>
     );
