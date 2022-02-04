@@ -1,23 +1,31 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 import { Ionicons } from '@expo/vector-icons'; 
 import { MaterialIcons } from '@expo/vector-icons'; 
 import 'react-native-gesture-handler';
 
 import { Home } from '../screens/Home';
 import { NewBet } from '../screens/NewBet';
-// import { Account } from '../screens/Account';
 import { UpdateMyUser } from '../screens/UpdateMyUser';
+import { Account } from '../screens/Account';
 import { Cart } from '../screens/Cart';
-import HeaderButton from '../components/HeaderButton';
+
+import { HeaderButton } from '../components';
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
-export function Game() {
+function Game({navigation}: any) {
+
+  function onLogin() {
+    navigation.navigate('Login')
+  }
 
   return (
-    <NavigationContainer>
+    <NavigationContainer independent={true}>
       <Tab.Navigator
         screenOptions={({ route }) => ({
           tabBarIcon: ({ color, size }) => {
@@ -51,15 +59,32 @@ export function Game() {
             borderBottomWidth: 5,
             borderRadius: 3,
           },
-          headerRight: () => (<HeaderButton />)
+          headerRight: () => (<HeaderButton onClick={onLogin}/>)
         })} 
       >
         <Tab.Screen name="Home" component={Home} options={{ title: 'Home' }}/>
-        <Tab.Screen name="NewBet" component={NewBet} options={{ title: 'New Bet' }}/>
+        <Tab.Screen name="NewBet" component={NewBet} options={{ title: 'New Bet'}}/>
         <Tab.Screen name="Cart" component={Cart} options={{ title: 'Cart' }}/>
-        <Tab.Screen name="Account" component={UpdateMyUser} options={{ title: 'Account' }}/>
+        <Tab.Screen name="Account" component={Profile} options={{ title: 'Account' }}/>
       </Tab.Navigator>
     </NavigationContainer>
 
   );
 }
+
+function Profile() {
+  return (
+    <NavigationContainer independent={true}>
+      <Stack.Navigator
+        initialRouteName="Account"
+        screenOptions={{ headerShown: false }}
+        
+      >
+        <Stack.Screen name="Account" component={Account}  options={{ headerShown: false }}/>
+        <Stack.Screen name="UpdateMyUser" component={UpdateMyUser}  options={{ headerShown: false }}/>
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+export default Game;

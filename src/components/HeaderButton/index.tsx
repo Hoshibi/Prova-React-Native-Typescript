@@ -4,9 +4,13 @@ import { AntDesign } from '@expo/vector-icons';
 import { Container, TextButton } from "../HeaderButton/styles";
 import { TouchableOpacity } from "react-native";
 
-const HeaderButton: React.FC = () => {
+interface PropsType {
+    onClick: () => void
+}
+
+const HeaderButton: React.FC<PropsType> = ({onClick}) => {
     return (
-        <TouchableOpacity activeOpacity={0.5}>
+        <TouchableOpacity activeOpacity={0.5} onPress={onClick}>
             <Container>
                 <TextButton>Log out</TextButton>
                 <AntDesign name="arrowright" size={22} color="#707070" />

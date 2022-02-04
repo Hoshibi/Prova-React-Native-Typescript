@@ -6,6 +6,7 @@ import { Login } from '../screens/Login'
 import { Registration } from '../screens/Registration';
 import { ResetPassword } from '../screens/ResetPassword';
 import { ChangePassword } from '../screens/ChangePassword';
+import Game from './Game';
 
 const Stack = createNativeStackNavigator();
 
@@ -16,6 +17,7 @@ export function Auth() {
         initialRouteName="Login"
         screenOptions={{ headerShown: false }}
       >
+        <Stack.Screen name="Logged" component={Game} options={{ title: 'Logged' }}/>
         <Stack.Screen name="ChangePassword" component={ChangePassword} options={{ title: 'Change Password' }}/>
         <Stack.Screen name="ResetPassword" component={ResetPassword} options={{ title: 'Reset Password' }}/>
         <Stack.Screen name="Registration" component={Registration} options={{ title: 'Registration' }}/>
