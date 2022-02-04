@@ -1,10 +1,8 @@
 import React from "react";
-import { Text } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 
 import { Container, TitlePage, TitleFilter, ContainerFilters, ContainerGames } from "../RecentGames/styles";
-import BtnFilter from "../BtnFilter";
-import PurchasedCard from "../PurchasedCard";
+import { BtnFilter, PurchasedCard } from "@components/index";
 
 const RecentGames: React.FC = () => {
     return (

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { RecentGames } from '../components';
+import { RecentGames } from '@components/index';
 
 export function Home() {
 

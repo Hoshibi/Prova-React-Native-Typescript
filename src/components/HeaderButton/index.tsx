@@ -1,7 +1,7 @@
 import React from "react";
 import { AntDesign } from '@expo/vector-icons'; 
 
-import { Container, TextButton } from "../HeaderButton/styles";
+import { Container, TextButton } from "./styles";
 import { TouchableOpacity } from "react-native";
 
 interface PropsType {

@@ -4,8 +4,7 @@ import { ScrollView } from "react-native";
 import { Ionicons } from '@expo/vector-icons'; 
 import { TouchableOpacity } from "react-native";
 
-import BtnGame from "../BtnGame";
-import BtnNumbers from "../BtnNumbers";
+import { BtnGame, BtnNumbers } from "@components/index";
 
 import { Container, TitleContainer, TitleBold, TitleNormal, TextBold, TextGame, NumbersContainer, BtnGamesContainer, BtnContainer, BtnGreen, TextBtnGreen, BtnAdd, TextBtnAdd } from "../LotteryContainer/styles";
 const LotteryContainer: React.FC = () => {

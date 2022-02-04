@@ -1,5 +1,4 @@
 import React from "react";
-import { Text } from "react-native";
 
 import { CardContainer, Numbers, DateValue, GameType } from "./styles";
 

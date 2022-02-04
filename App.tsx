@@ -1,8 +1,8 @@
-import { Auth } from './src/navigation/Auth';
-import { Home } from './src/screens/Home';
-import Game from './src/navigation/Game';
+import React from 'react';
 
+import { Auth } from '@navigation/Auth';
 import AppLoading from 'expo-app-loading';
+
 import {
   useFonts,
   WorkSans_300Light,

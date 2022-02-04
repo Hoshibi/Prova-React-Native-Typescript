@@ -1,5 +1,4 @@
 import React from "react";
-import { Text } from "react-native";
 
 import { Container, BtnTrash, NumbersContainer, Numbers, InfoNumbersContainer, GameType, Price } from "./styles";
 

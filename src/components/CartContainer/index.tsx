@@ -2,7 +2,7 @@ import React from "react";
 import { AntDesign } from '@expo/vector-icons'; 
 
 import { Container, CartBox, InfoCart, TitleCart, NumberContainer, TotalPriceContainer, TextBoldTotalPrice, TextTotalPrice, BtnSave, TextBtnSave } from "./styles";
-import CartCard from "../CartCard";
+import { CartCard } from "@components/index";
 import { ScrollView, TouchableOpacity } from "react-native";
 
 const CartContainer: React.FC = () => {

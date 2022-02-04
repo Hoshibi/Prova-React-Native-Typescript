@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { FormAuthContainer, Input, ResetPasswordLink } from '../components';
+import { FormAuthContainer, Input, ResetPasswordLink } from '@components/index';
 
 export function Login({navigation}: any) {
 
