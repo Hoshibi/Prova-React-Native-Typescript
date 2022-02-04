@@ -1,4 +1,6 @@
 import { Auth } from './src/navigation/Auth';
+import { Game } from './src/navigation/Game';
+import { Home } from './src/screens/Home';
 
 import AppLoading from 'expo-app-loading';
 import {
@@ -50,7 +52,8 @@ export default function App() {
     return <AppLoading />;
   } else {
     return (
-      <Auth />
+      // <Auth />
+      <Game />
     );
   }
 }
