@@ -9,7 +9,7 @@ interface PropsType {
   btnGreenTitle: string;
   btnGrayTitle: string;
   back: boolean;
-  onPressBtnGreen?: () => void;
+  onPressBtnGreen?: any;
   onPressBtnGray: () => void;
 }
 

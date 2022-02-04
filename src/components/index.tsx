@@ -1,17 +1,17 @@
-import AccountContainer from "@components/AccountContainer";
-import AccountEditContainer from "@components/AccountEditContainer";
-import BtnFilter from "@components/BtnFilter";
-import BtnGame from "@components/BtnGame";
-import BtnNumbers from "@components/BtnNumbers";
-import CartCard from "@components/CartCard";
-import CartContainer from "@components/CartContainer";
-import FormAuthContainer from "@components/FormAuthContainer";
-import HeaderButton from "@components/HeaderButton";
-import Input from "@components/Input";
-import LotteryContainer from "@components/LotteryContainer";
-import PurchasedCard from "@components/PurchasedCard";
-import RecentGames from "@components/RecentGames";
-import ResetPasswordLink from "@components/ResetPasswordLink";
+import AccountContainer from "./AccountContainer";
+import AccountEditContainer from "./AccountEditContainer";
+import BtnFilter from "./BtnFilter";
+import BtnGame from "./BtnGame";
+import BtnNumbers from "./BtnNumbers";
+import CartCard from "./CartCard";
+import CartContainer from "./CartContainer";
+import FormAuthContainer from "./FormAuthContainer";
+import HeaderButton from "./HeaderButton";
+import Input from "./Input";
+import LotteryContainer from "./LotteryContainer";
+import PurchasedCard from "./PurchasedCard";
+import RecentGames from "./RecentGames";
+import ResetPasswordLink from "./ResetPasswordLink";
 
 export { 
     AccountContainer,

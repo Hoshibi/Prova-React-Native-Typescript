@@ -1,7 +1,8 @@
 import axios, { AxiosError } from "axios";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const instance = axios.create({
-    baseURL: 'http://127.0.0.1:3333',
+    baseURL: 'http://192.168.0.106:3333',
     timeout: 1000,
     headers: {
       'Content-Type': 'application/json',
@@ -19,7 +20,7 @@ instance.interceptors.response.use(function (response) {
 });
 
 instance.interceptors.request.use(function (config) {
-  const isToken = window.localStorage.getItem('token');
+  const isToken = AsyncStorage.getItem('token');
   if( isToken ){
     config.headers!.Authorization = `Bearer ${isToken}`
   }
