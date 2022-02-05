@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { LotteryContainer } from '@components/index';
+import LotteryContainer from '@components/LotteryContainer';
 
 export function NewBet() {
   return (

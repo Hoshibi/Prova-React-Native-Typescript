@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { AccountContainer  } from '@components/index';
+import AccountContainer from '@components/AccountContainer';
 
 export function Account({navigation}: any) {
 

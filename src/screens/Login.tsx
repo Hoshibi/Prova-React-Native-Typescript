@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { isValidEmail } from '@shared/helpers/isValidEmail';
 import authServices from '@shared/services/auth';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Toast from 'react-native-toast-message'
 
 import { FormAuthContainer, Input, ResetPasswordLink } from '@components/index';
 
@@ -32,7 +33,7 @@ export function Login({navigation}: any) {
     if(email.trim().length === 0) { errorMessage='Campo email vazio! Insira um email' }
     if(password.trim().length === 0) { errorMessage='Campo password vazio! Insira uma senha' }
     if(email.trim().length === 0 && password.trim().length === 0) { errorMessage='Todos os campos vazios! Insira os dados' }
-    if(!isValidEmail(email) && email.trim().length > 0 && password.trim().length > 0) { errorMessage='Insira um email válido. Exemplo: exemplo@luby.com.br' }
+    if(!isValidEmail(email) && email.trim().length > 0 && password.trim().length > 0) { errorMessage='Insira um email válido. Ex: exemplo@luby.com.br' }
 
     if(!!isValidEmail(email) && email.trim().length > 0 && password.trim().length > 0) { 
       var body = {email: email, password: password}
@@ -43,18 +44,18 @@ export function Login({navigation}: any) {
         return res
       }catch (error: any) {
         if(error.status === 401){
-          console.log("Email e/ou senhas incorretas")
+          Toast.show({ type: 'error', text1: 'E-mail e/ou senhas incorretas!' });
         }
       }
     }else{
-      console.log(errorMessage)
+      Toast.show({ type: 'error', text1: errorMessage});
     }
   };
 
   return (
     <FormAuthContainer title='Authentication' btnGreenTitle='Log In' btnGrayTitle='Sign Up' back={false} onPressBtnGreen={submitHandler} onPressBtnGray={onSignUp}>
       <Input dataCy="email-input" keyboardType='email-address' placeholder = "Email" autoCapitalize='none' onChange={emailChangeHandler}/>
-      <Input dataCy="password-input" keyboardType='default' placeholder = "Senha" autoCapitalize='none' onChange={passwordChangeHandler}/>
+      <Input dataCy="password-input" keyboardType='default' placeholder = "Password" autoCapitalize='none' onChange={passwordChangeHandler}/>
       <ResetPasswordLink onPress={() => {navigation.navigate('ResetPassword')}}/>
     </FormAuthContainer>
   );
