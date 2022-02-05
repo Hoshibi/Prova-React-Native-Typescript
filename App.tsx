@@ -1,7 +1,10 @@
 import React from 'react';
+import { Provider } from 'react-redux';
+import store from './src/store';
 
 import { Auth } from '@navigation/Auth';
 import AppLoading from 'expo-app-loading';
+import Toast from 'react-native-toast-message'
 
 import {
   useFonts,
@@ -28,7 +31,10 @@ export default function App() {
     return <AppLoading />;
   } else {
     return (
-      <Auth />
+      <Provider store={store}>
+        <Auth />
+        <Toast visibilityTime={8000} />
+      </Provider>
     );
   }
 }
