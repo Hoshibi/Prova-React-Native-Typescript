@@ -1,6 +1,10 @@
 import styled from "styled-components/native";
 
-export const CardContainer = styled.View `
+interface StyledProps {
+    color: string;
+}
+
+export const CardContainer = styled.View <StyledProps> `   
     margin-bottom: 20px;
     border-radius: 3px;
     padding-left: 15px;
@@ -8,7 +12,7 @@ export const CardContainer = styled.View `
     padding-top: 3px;
     padding-bottom: 3px;
     border-left-width: 8px;
-    border-left-color: #7F3992
+    borderLeftColor: ${props => props.color};
 `;
 
 export const Numbers = styled.Text `
@@ -25,8 +29,8 @@ export const DateValue = styled.Text `
     margin-bottom: 6px;
 `;
 
-export const GameType = styled.Text `
+export const GameType = styled.Text <StyledProps>  `
     font-family: 'WorkSans_600SemiBold_Italic';
     font-size: 18px;
-    color: #7F3992;
+    color: ${props => props.color};
 `;
