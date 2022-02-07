@@ -4,7 +4,7 @@ import { isValidEmail } from '@shared/helpers/isValidEmail';
 import authServices from '@shared/services/auth';
 
 import { useDispatch } from 'react-redux';
-import { authActions } from '../store/auth';
+import { authActions } from '@store/auth';
 
 import { FormAuthContainer, Input } from '@components/index';
 

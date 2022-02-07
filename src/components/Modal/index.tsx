@@ -2,7 +2,7 @@ import React from "react";
 import { Alert, Modal } from "react-native";
 import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 
-import { gameActions } from "../../store/gameControl";
+import { gameActions } from "@store/gameControl";
 import { ModalContainer, Box, Title, TextBody, BtnContainer, BtnClose, BtnCloseText, BtnConfirm, BtnConfirmText } from "./styles";
 
 interface TypeProps {

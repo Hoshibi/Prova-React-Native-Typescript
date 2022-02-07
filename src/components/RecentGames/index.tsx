@@ -4,7 +4,7 @@ import { ScrollView } from "react-native-gesture-handler";
 import { Container, TitlePage, TitleFilter, ContainerFilters, ContainerGames } from "../RecentGames/styles";
 import { BtnFilter, PurchasedCard } from "@components/index";
 import { useDispatch } from "react-redux";
-import { gameActions } from "../../store/gameControl";
+import { gameActions } from "@store/gameControl";
 
 interface PropsTypes {
     navigation: any;

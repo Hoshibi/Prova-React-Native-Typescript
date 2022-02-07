@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Toast from "react-native-toast-message";
 import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
-import { gameActions } from "../../store/gameControl";
+import { gameActions } from "@store/gameControl";
 
 import { BtnStyle, TextBtn } from "./styles";
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Ionicons } from '@expo/vector-icons'; 
 
-import { gameActions } from "../../store/gameControl";
+import { gameActions } from "@store/gameControl";
 import { Container, BtnTrash, NumbersContainer, Numbers, InfoNumbersContainer, GameType, Price } from "./styles";
 import { convertMoneyInReal } from "@shared/helpers/convertMonetaryValue";
 

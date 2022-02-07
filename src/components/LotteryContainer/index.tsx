@@ -5,7 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 import { BtnGame, ListNumbers } from "@components/index";
 import { Container, TitleContainer, TitleBold, TitleNormal, TextBold, TextGame, NumbersContainer, BtnGamesContainer, BtnContainer, BtnGreen, TextBtnGreen, BtnAdd, TextBtnAdd } from "../LotteryContainer/styles";
-import { gameActions } from '../../store/gameControl';
+import { gameActions } from '@store/gameControl';
 import Toast from "react-native-toast-message";
 import ModalComponent from "@components/Modal";
 

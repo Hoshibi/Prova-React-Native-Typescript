@@ -4,7 +4,7 @@ import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import { convertMoneyInReal } from "@shared/helpers/convertMonetaryValue";
 import gameServices from "@shared/services/game";
 import betServices from "@shared/services/bet";
-import { gameActions } from "../../store/gameControl";
+import { gameActions } from "@store/gameControl";
 import Toast from "react-native-toast-message";
 import { AntDesign } from '@expo/vector-icons'; 
 
