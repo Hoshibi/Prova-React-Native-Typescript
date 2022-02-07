@@ -24,6 +24,14 @@ export function Login({navigation}: any) {
     setPassword(text);
   };
 
+  React.useEffect(() => {
+    const unsubscribe = navigation.addListener('focus', () => {
+      setEmail("");
+      setPassword("");
+    });
+    return unsubscribe;
+  }, [navigation]);
+  
   //Submit Login Handler
   const submitHandler = async (event: any) => {
     event.preventDefault();
@@ -39,7 +47,7 @@ export function Login({navigation}: any) {
       var body = {email: email, password: password}
       try {
         const res = await authServices().loginUser(body);
-        AsyncStorage.setItem('token',res.data.token.token);
+        await AsyncStorage.setItem('token',res.data.token.token);
         navigation.navigate('Logged');
         return res
       }catch (error: any) {
@@ -54,8 +62,8 @@ export function Login({navigation}: any) {
 
   return (
     <FormAuthContainer title='Authentication' btnGreenTitle='Log In' btnGrayTitle='Sign Up' back={false} onPressBtnGreen={submitHandler} onPressBtnGray={onSignUp}>
-      <Input dataCy="email-input" keyboardType='email-address' placeholder = "Email" autoCapitalize='none' onChange={emailChangeHandler}/>
-      <Input dataCy="password-input" keyboardType='default' placeholder = "Password" autoCapitalize='none' onChange={passwordChangeHandler}/>
+      <Input dataCy="email-input" secureTextEntry={false} keyboardType='email-address' placeholder = "Email" autoCapitalize='none' onChange={emailChangeHandler}/>
+      <Input dataCy="password-input" secureTextEntry={true} keyboardType='default' placeholder = "Password" autoCapitalize='none' onChange={passwordChangeHandler}/>
       <ResetPasswordLink onPress={() => {navigation.navigate('ResetPassword')}}/>
     </FormAuthContainer>
   );

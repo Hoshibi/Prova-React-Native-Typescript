@@ -22,6 +22,13 @@ export function ResetPassword({navigation}: any) {
         navigation.goBack()
     }
 
+    React.useEffect(() => {
+        const unsubscribe = navigation.addListener('focus', () => {
+          setEmail("");
+        });
+        return unsubscribe;
+    }, [navigation]);
+
     const submitHandler = async (event: any) => {
         event.preventDefault();
     
@@ -50,7 +57,7 @@ export function ResetPassword({navigation}: any) {
 
     return (
         <FormAuthContainer title='Reset password' btnGreenTitle='Send link' btnGrayTitle='Back' back={true} onPressBtnGreen={submitHandler} onPressBtnGray={onBack}>
-            <Input dataCy="email-input" keyboardType='email-address' placeholder = "Email" autoCapitalize='none' onChange={emailChangeHandler}/>
+            <Input dataCy="email-input" secureTextEntry={false} keyboardType='email-address' placeholder = "Email" autoCapitalize='none' onChange={emailChangeHandler}/>
         </FormAuthContainer>
     );
 }

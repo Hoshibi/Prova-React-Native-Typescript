@@ -8,12 +8,13 @@ interface PropsType {
     placeholder: string;
     autoCapitalize: any;
     onChange: (text:string) => void;
+    secureTextEntry: boolean;
 }
 
-const Input: React.FC<PropsType> = ({ dataCy, keyboardType, placeholder, autoCapitalize, onChange}) => {
+const Input: React.FC<PropsType> = ({ dataCy, keyboardType, placeholder, autoCapitalize, onChange, secureTextEntry}) => {
     return (
         <>
-            <InputStyle data-cy={dataCy} keyboardType={keyboardType} placeholder={placeholder} autoCapitalize={autoCapitalize} onChangeText={onChange}/>
+            <InputStyle data-cy={dataCy} secureTextEntry={secureTextEntry} keyboardType={keyboardType} placeholder={placeholder} autoCapitalize={autoCapitalize} onChangeText={onChange}/>
         </>
     );
 };

@@ -23,6 +23,15 @@ export function Registration({navigation}: any) {
         setName(text);
     };
 
+    React.useEffect(() => {
+        const unsubscribe = navigation.addListener('focus', () => {
+          setEmail("");
+          setPassword("");
+          setName("");
+        });
+        return unsubscribe;
+    }, [navigation]);
+
     //onBack Handler
     function onBack() {
         navigation.goBack();
@@ -63,9 +72,9 @@ export function Registration({navigation}: any) {
 
     return (
         <FormAuthContainer title='Registration' btnGreenTitle='Register' btnGrayTitle='Back' back={true} onPressBtnGreen={submitHandler} onPressBtnGray={onBack}>
-            <Input dataCy="name-input" keyboardType='default' placeholder = "Name" autoCapitalize='words' onChange={nameChangeHandler}/>
-            <Input dataCy="email-input" keyboardType='email-address' placeholder = "Email" autoCapitalize='none' onChange={emailChangeHandler}/>
-            <Input dataCy="password-input" keyboardType='default' placeholder = "Password" autoCapitalize='none' onChange={passwordChangeHandler}/>
+            <Input dataCy="name-input" secureTextEntry={false} keyboardType='default' placeholder = "Name" autoCapitalize='words' onChange={nameChangeHandler}/>
+            <Input dataCy="email-input" secureTextEntry={false} keyboardType='email-address' placeholder = "Email" autoCapitalize='none' onChange={emailChangeHandler}/>
+            <Input dataCy="password-input" secureTextEntry={true} keyboardType='default' placeholder = "Password" autoCapitalize='none' onChange={passwordChangeHandler}/>
         </FormAuthContainer>
     );
 }

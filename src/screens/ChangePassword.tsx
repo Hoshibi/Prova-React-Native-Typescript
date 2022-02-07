@@ -19,6 +19,13 @@ export function ChangePassword({navigation}: any) {
         navigation.goBack()
     }
 
+    React.useEffect(() => {
+      const unsubscribe = navigation.addListener('focus', () => {
+        setSenha("");
+      });
+      return unsubscribe;
+    }, [navigation]);
+
     const submitHandler = async (event: any) => {
         event.preventDefault();
     
@@ -43,7 +50,7 @@ export function ChangePassword({navigation}: any) {
 
     return (
         <FormAuthContainer title='Change password' btnGreenTitle='Change' btnGrayTitle='Back' back={true} onPressBtnGreen={submitHandler} onPressBtnGray={onBack}>
-            <Input dataCy="password-input" keyboardType='default' placeholder = "Senha" autoCapitalize='none' onChange={senhaChangeHandler}/>
+            <Input dataCy="password-input" secureTextEntry={true} keyboardType='default' placeholder = "Senha" autoCapitalize='none' onChange={senhaChangeHandler}/>
         </FormAuthContainer>
     );
     
