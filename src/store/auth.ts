@@ -10,7 +10,6 @@ const authSlice = createSlice({
   reducers: {
     getTokenPassword(state, action) {
       state.token = action.payload;
-      console.log(state.token);
     },
   },
 });

@@ -47,10 +47,7 @@ export const TextGame = styled.Text `
 `;
 
 export const NumbersContainer = styled.View `
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-top: 15px;
+    margin-top: 25px;
     margin-bottom: 20px;
 `;
 

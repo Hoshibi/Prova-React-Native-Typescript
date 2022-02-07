@@ -1,7 +1,12 @@
 import styled from "styled-components/native";
 
-export const BtnStyle = styled.View `
-    background-color: #ADC0C4;
+interface StyledProps {
+    color?: string;
+    selected?: boolean;
+}
+
+export const BtnStyle = styled.TouchableOpacity<StyledProps> `
+    background-color: ${props => (!!props.selected ? props.color : '#ADC0C4')};
     width: 64px;
     height: 64px;
     border-radius:32px;

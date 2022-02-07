@@ -12,6 +12,7 @@ import LotteryContainer from "./LotteryContainer";
 import PurchasedCard from "./PurchasedCard";
 import RecentGames from "./RecentGames";
 import ResetPasswordLink from "./ResetPasswordLink";
+import ListNumbers from "./ListNumbers";
 
 export { 
     AccountContainer,
@@ -27,5 +28,6 @@ export {
     LotteryContainer,
     PurchasedCard,
     RecentGames,
-    ResetPasswordLink
+    ResetPasswordLink,
+    ListNumbers
 }

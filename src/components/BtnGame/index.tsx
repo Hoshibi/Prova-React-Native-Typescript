@@ -1,15 +1,33 @@
 import React from "react";
-import { TouchableOpacity } from "react-native";
+import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
+import { gameActions } from "../../store/gameControl";
 
-import { Btn, TextButton } from "./styles";
+import { Btn, TextButton, BtnSelected, TextSelected } from "./styles";
 
-const BtnGame: React.FC = () => {
+interface PropsType {
+    color: string;
+    id: number;
+    price: number;
+    index: number;
+    resetFilter: boolean;
+}
+
+const BtnGame: React.FC<PropsType> = ({ children, color, price, id, index, resetFilter}) => {
+    const dispatch = useDispatch();
+    const gameSelected = useSelector((state: RootStateOrAny) => state.game.gameSelected);
+    
+    function buttonHandler() {
+        gameSelected === id && !!resetFilter && dispatch(gameActions.setGame([0,0]));
+        gameSelected !== id && dispatch(gameActions.setGame([id,index,price]));
+
+        dispatch(gameActions.clearGame())
+    }
+
     return (
-        <TouchableOpacity activeOpacity={0.5}>
-            <Btn>
-                <TextButton>Lotafácil</TextButton>
-            </Btn>
-        </TouchableOpacity>
+        <>
+            {gameSelected === id && <BtnSelected activeOpacity={0.5} color={color} onPress={buttonHandler}><TextSelected color={color}>{children}</TextSelected></BtnSelected>}
+            {gameSelected !== id && <Btn activeOpacity={0.5} color={color} onPress={buttonHandler}><TextButton color={color}>{children}</TextButton></Btn>}
+        </>
     );
 }
 
