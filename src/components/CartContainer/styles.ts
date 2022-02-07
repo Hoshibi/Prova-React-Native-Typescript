@@ -30,9 +30,15 @@ export const TitleCart = styled.Text `
     color: #707070;
 `;
 
-export const NumberContainer = styled.View `
+export const NumberContainer = styled.ScrollView `
     margin-top: 25px; 
     margin-bottom: 10px; 
+    height: 240px;
+`;
+
+export const TextEmptyCart = styled.Text `
+    font-family: 'WorkSans_400Regular';
+    color: #707070;
 `;
 
 export const TotalPriceContainer = styled.View `

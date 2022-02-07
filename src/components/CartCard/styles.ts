@@ -1,21 +1,30 @@
 import styled from "styled-components/native";
 
+interface StyledProps {
+    color: string;
+}
+
 export const Container = styled.View `
     margin-bottom: 25px;
+    margin-right: 10px; 
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 `;
 
-export const BtnTrash = styled.View `
-
+export const BtnTrash = styled.TouchableOpacity `
+    padding-right: 12px;
 `;
 
-export const NumbersContainer = styled.View `
+export const NumbersContainer = styled.View <StyledProps> `
     border-radius: 5px;
     border-style: solid;
     border-left-width: 5px;
-    border-color: #7F3992;
+    border-color: ${props => props.color};
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 15px;
+    margin-right: 40px;
 `;
 
 export const Numbers = styled.Text `
@@ -30,11 +39,11 @@ export const InfoNumbersContainer = styled.View `
     margin-top: 7px;
 `;
 
-export const GameType = styled.Text `
+export const GameType = styled.Text<StyledProps> `
     margin-right: 15px;
     font-family: 'WorkSans_600SemiBold_Italic';
     font-size: 18px;
-    color: #7F3992;
+    color: ${props => props.color};
 `;
 
 export const Price = styled.Text `

@@ -2,8 +2,8 @@ import React from "react";
 
 import CartContainer from "@components/CartContainer";
 
-export function Cart() {
+export function Cart({navigation}:any) {
     return(
-        <CartContainer />
+        <CartContainer navigationPage={() => navigation.navigate('Home')}/>
     );
 }
