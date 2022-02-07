@@ -3,20 +3,23 @@ import { Container, Title, InfoCard, NameContainer, EmailContainer, BoldText, No
 
 interface PropsType {
     btnEditProfile?: () => void;
+    name: string;
+    email: string;
+    navigation: any;
 }
 
-const AccountContainer: React.FC<PropsType> = ({btnEditProfile}) => {
+const AccountContainer: React.FC<PropsType> = ({btnEditProfile, name, email, navigation}) => {
     return(
         <Container>
             <Title>MY ACCOUNT</Title>
             <InfoCard>
                 <NameContainer>
                     <BoldText>Name:</BoldText>
-                    <NormalText>Taianny Sayuri Shiotani</NormalText>
+                    <NormalText>{name}</NormalText>
                 </NameContainer>
                 <EmailContainer>
                     <BoldText>Email:</BoldText>
-                    <NormalText>tanyshiotani@hotmail.com</NormalText>
+                    <NormalText>{email}</NormalText>
                 </EmailContainer>
             </InfoCard>
             <BtnEdit onPress={btnEditProfile}>

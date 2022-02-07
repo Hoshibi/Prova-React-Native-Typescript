@@ -51,7 +51,6 @@ function Game({navigation}: any) {
           headerTitle: 'TGL',
           headerTitleStyle: {
             paddingTop: 14,
-            
             fontFamily: 'WorkSans_600SemiBold_Italic',
             color: '#4b4b4b',
             fontSize: 29,
@@ -78,10 +77,9 @@ function Profile() {
       <Stack.Navigator
         initialRouteName="Account"
         screenOptions={{ headerShown: false }}
-        
       >
-        <Stack.Screen name="Account" component={Account}  options={{ headerShown: false }}/>
         <Stack.Screen name="UpdateMyUser" component={UpdateMyUser}  options={{ headerShown: false }}/>
+        <Stack.Screen name="Account" component={Account}  options={{ headerShown: false }}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
