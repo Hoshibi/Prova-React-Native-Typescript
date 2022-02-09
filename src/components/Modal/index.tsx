@@ -7,9 +7,10 @@ import { ModalContainer, Box, Title, TextBody, BtnContainer, BtnClose, BtnCloseT
 
 interface TypeProps {
     title: string,
+    continueHandler: () => void
 }
 
-const ModalComponent: React.FC<TypeProps> = ({children, title}) => {
+const ModalComponent: React.FC<TypeProps> = ({children, title, continueHandler}) => {
     
     const dispatch = useDispatch();
     const modalOpen = useSelector((state: RootStateOrAny) => state.game.modalOpen);
@@ -17,13 +18,6 @@ const ModalComponent: React.FC<TypeProps> = ({children, title}) => {
     const handleClose = () => {
         dispatch(gameActions.addPermission(false));
         dispatch(gameActions.modalState(false));
-    }
-
-    const Continuehandler = () => {
-        dispatch(gameActions.addPermission(true));
-        dispatch(gameActions.modalState(false));
-        dispatch(gameActions.addToCartAfterPermission());
-        dispatch(gameActions.savePurchase());
     }
 
     return (
@@ -41,7 +35,7 @@ const ModalComponent: React.FC<TypeProps> = ({children, title}) => {
                     <TextBody>{children}</TextBody>
                     <BtnContainer>
                         <BtnClose onPress={handleClose}><BtnCloseText>Cancelar</BtnCloseText></BtnClose>
-                        <BtnConfirm onPress={Continuehandler}><BtnConfirmText>Continuar</BtnConfirmText></BtnConfirm>
+                        <BtnConfirm onPress={continueHandler}><BtnConfirmText>Continuar</BtnConfirmText></BtnConfirm>
                     </BtnContainer>
                 </Box>
             </ModalContainer> 

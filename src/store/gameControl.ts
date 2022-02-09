@@ -149,6 +149,7 @@ const gameSlice = createSlice({
         }
   
         list.push(data);
+        Toast.show({ type: 'success', text1: 'Adicionado ao carrinho com sucesso! ' });
       }else{
         var have = 0;
         for(var i = 0; i < list.length; i++){
@@ -158,6 +159,7 @@ const gameSlice = createSlice({
         if(have>0){ 
           state.modalOpen = true; 
         }else{
+          Toast.show({ type: 'success', text1: 'Adicionado ao carrinho com sucesso! ' });
           let data = {
             num : num,
             game : game,

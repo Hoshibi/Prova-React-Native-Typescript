@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
-import { TouchableOpacity, ScrollView, Modal, Alert, Text } from "react-native";
+import { TouchableOpacity, ScrollView } from "react-native";
 import { Ionicons } from '@expo/vector-icons'; 
 
 import { BtnGame, ListNumbers } from "@components/index";
@@ -47,15 +47,22 @@ const LotteryContainer: React.FC<PropsType> = ({ infos, navigation }) => {
 
     function AddCartHandler() {
         if(numbersSelected.length < infos[indexGame].max_number){
-            Toast.show({type: 'error', text1: `Selecione ${infos[indexGame].max_number} números. Faltam ${infos[indexGame].max_number-numbersSelected.length} números para completar!`}) 
+            Toast.show({type: 'error', text1: `Faltam ${infos[indexGame].max_number-numbersSelected.length} números para completar!`}) 
         }else{
             dispatch(gameActions.addToCart());
             dispatch(gameActions.savePurchase());
             dispatch(gameActions.clearGame());
-            Toast.show({ type: 'success', text1: 'Adicionado ao carrinho com sucesso! ' });
         }
     }
     
+    const ContinueAfterPermissionHandler = () => {
+        dispatch(gameActions.addPermission(true));
+        dispatch(gameActions.modalState(false));
+        dispatch(gameActions.addToCartAfterPermission());
+        dispatch(gameActions.savePurchase());
+        Toast.show({ type: 'success', text1: 'Adicionado ao carrinho com sucesso! ' });
+    }
+
     return(
         <ScrollView>
             <Container>
@@ -107,9 +114,8 @@ const LotteryContainer: React.FC<PropsType> = ({ infos, navigation }) => {
                         </BtnAdd>
                     </TouchableOpacity>
                 </BtnContainer>
-                <ModalComponent title={'Cartela Repetida'}>{'Uma cartela com os mesmos números já existe no carrinho. Deseja colocar novamente?'}</ModalComponent>
+                <ModalComponent title={'Cartela Repetida'} continueHandler={ContinueAfterPermissionHandler}>{'Uma cartela com os mesmos números já existe no carrinho. Deseja colocar novamente?'}</ModalComponent>
             </Container>
-
         </ScrollView>
     );
 };
