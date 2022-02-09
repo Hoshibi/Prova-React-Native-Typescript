@@ -6,7 +6,6 @@ import gameServices from '@shared/services/game';
 import betServices from '@shared/services/bet';
 
 export function Home({navigation}:any) {
-  const dispatch = useDispatch();
   const gameToFilter = useSelector((state: RootStateOrAny) => state.game.gameToFilter);
 
   const [infoGame, setInfoGame] = useState([]);
@@ -22,7 +21,14 @@ export function Home({navigation}:any) {
 
   const getRecentGamesHandler = useCallback(async () => {
     betServices().listBet(gameToFilter).then(function (response:any) {setRecentGames(response.data)})
-  }, [gameToFilter]);
+  }, [gameToFilter, betServices]);
+
+  React.useEffect(() => {
+    const unsubscribe = navigation.addListener('focus', () => {
+      betServices().listBet(gameToFilter).then(function (response:any) {setRecentGames(response.data)})
+    });
+    return unsubscribe;
+  }, [navigation]);
   
   useEffect(() => {
     getGameHandler();
