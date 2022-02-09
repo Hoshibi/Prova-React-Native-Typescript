@@ -1,9 +1,5 @@
 import styled from "styled-components/native";
 
-// export const Container = styled.TouchableWithoutFeedback `
-    
-// `;
-
 export const ModalContainer = styled.View `
     height: 100%;
     width: 100%;

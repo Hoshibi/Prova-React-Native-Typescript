@@ -6,6 +6,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Ionicons } from '@expo/vector-icons'; 
 import { MaterialIcons } from '@expo/vector-icons'; 
 import 'react-native-gesture-handler';
+import { useDispatch } from 'react-redux';
+import { gameActions } from '@store/gameControl';
 
 import { Home } from '../screens/Home';
 import { NewBet } from '../screens/NewBet';
@@ -19,8 +21,10 @@ const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
 function Game({navigation}: any) {
+  const dispatch = useDispatch();
 
   function onLogin() {
+    dispatch(gameActions.cleanCart());
     navigation.navigate('Login')
   }
 

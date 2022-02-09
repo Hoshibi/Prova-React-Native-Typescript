@@ -17,7 +17,7 @@ const BtnGame: React.FC<PropsType> = ({ children, color, price, id, index, reset
     const gameSelected = useSelector((state: RootStateOrAny) => state.game.gameSelected);
     
     function buttonHandler() {
-        gameSelected === id && !!resetFilter && dispatch(gameActions.setGame([0,0]));
+        gameSelected === id && !!resetFilter && dispatch(gameActions.setGame([1,0,0]));
         gameSelected !== id && dispatch(gameActions.setGame([id,index,price]));
 
         dispatch(gameActions.clearGame())

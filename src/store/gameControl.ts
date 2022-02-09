@@ -35,7 +35,7 @@ interface initialGameStateProps {
 
 const initialGameState: initialGameStateProps = {
   gameSelected: 0,
-  indexGameSelected: -1,
+  indexGameSelected: 1,
   priceGameSelected: 0,
   dataGamesBet: [],
   selectedNumberList: [],

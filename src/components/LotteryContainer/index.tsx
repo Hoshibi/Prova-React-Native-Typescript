@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import { TouchableOpacity, ScrollView } from "react-native";
 import { Ionicons } from '@expo/vector-icons'; 
