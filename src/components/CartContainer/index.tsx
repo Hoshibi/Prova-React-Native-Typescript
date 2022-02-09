@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { TouchableOpacity} from "react-native";
 import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import { convertMoneyInReal } from "@shared/helpers/convertMonetaryValue";
@@ -23,9 +23,11 @@ const CartContainer: React.FC<PropsType> = ({navigationPage}) => {
     const [info, setInfo] = useState([]);
 
     //Get listGames
-    useEffect(() => {
-        gameServices().listGames.then(function (response:any) {setInfo(response.data.types)})
-    },[])
+    React.useEffect(() => {
+        gameServices().listGames.then(function (response:any) {
+            setInfo(response.data.types)
+        })
+      }, [gameServices]);
 
     const btnSaveHandler = async (event: any) => {        
         event.preventDefault();
@@ -55,7 +57,7 @@ const CartContainer: React.FC<PropsType> = ({navigationPage}) => {
                     <NumberContainer persistentScrollbar={true}>
                         {gamesToCart.length === 0 && <TextEmptyCart>[ Carrinho Vazio ] </TextEmptyCart>}    
                         {gamesToCart.length !== 0 && gamesToCart.map(function ( item:any, index:number ) { 
-                                return (<CartCard key={index} game={info} index={item.game} numbers={item.num}/>);
+                                return (<CartCard key={index} game={info[item.game]} numbers={item.num}/>);
                         } )}  
                     </NumberContainer>
                     <TotalPriceContainer>
