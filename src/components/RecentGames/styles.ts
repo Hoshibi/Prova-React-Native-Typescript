@@ -33,3 +33,20 @@ export const ContainerGames = styled.View `
     margin-top: 15px;
     margin-bottom: 5px;
 `;
+
+export const TextNoPurchased = styled.Text `
+    font-family: 'WorkSans_400Regular';
+    margin-bottom: 10px;
+`;
+
+export const TextNoPurchasedBold = styled.Text `
+    font-family: 'WorkSans_600SemiBold';
+`;
+
+export const TextNoPurchasedContainer = styled.View `
+    background-color: #e6e6e6;
+    border-radius: 10px;
+    padding-left: 15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+`;

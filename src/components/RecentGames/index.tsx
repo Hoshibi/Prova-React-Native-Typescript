@@ -1,9 +1,9 @@
 import React from "react";
 import { ScrollView } from "react-native-gesture-handler";
 
-import { Container, TitlePage, TitleFilter, ContainerFilters, ContainerGames } from "../RecentGames/styles";
+import { Container, TitlePage, TitleFilter, ContainerFilters, ContainerGames, TextNoPurchased, TextNoPurchasedBold, TextNoPurchasedContainer } from "../RecentGames/styles";
 import { BtnFilter, PurchasedCard } from "@components/index";
-import { useDispatch } from "react-redux";
+import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import { gameActions } from "@store/gameControl";
 
 interface PropsTypes {
@@ -26,6 +26,7 @@ interface PropsTypes {
 
 const RecentGames: React.FC<PropsTypes> = ({ navigation,typeGame, recentGameInfo, infoColorGame }) => {
     const dispatch = useDispatch();
+    const gameToFilter = useSelector((state: RootStateOrAny) => state.game.gameToFilter); 
     
     React.useEffect(() => {
         const unsubscribe = navigation.addListener('blur', () => {
@@ -49,6 +50,12 @@ const RecentGames: React.FC<PropsTypes> = ({ navigation,typeGame, recentGameInfo
                     {recentGameInfo.map( (item) => { 
                         return (<PurchasedCard key={item.id} numbers={item.choosen_numbers} date={item.created_at} value={item.price} gametype={item.type.type} idgame={item.type.id} infoColorGame={infoColorGame}/>) ;
                     })}
+                    { recentGameInfo.length <= 0 && 
+                        <TextNoPurchasedContainer>
+                            <TextNoPurchased>Não há nenhuma compra de jogo <TextNoPurchasedBold>{gameToFilter.join(', ')}</TextNoPurchasedBold> realizado !</TextNoPurchased>
+                            <TextNoPurchased>Para realizar uma compra aperte em <TextNoPurchasedBold>NewBet</TextNoPurchasedBold>.</TextNoPurchased>
+                        </ TextNoPurchasedContainer>
+                    }
                     </ContainerGames>
                 </ScrollView>
         </Container>
