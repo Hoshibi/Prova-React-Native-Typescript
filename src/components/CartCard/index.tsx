@@ -20,6 +20,15 @@ const CartCard: React.FC<PropsType> = ( {game, numbers} ) => {
     
     const dispatch = useDispatch();
     const [visible, setVisible] = useState(false);
+    const [color, setColor] = useState("#000000");
+    const [type, setType] = useState("Game");
+    const [price, setPrice] = useState(0);
+
+    useEffect(() => {
+        setColor(game.color);
+        setType(game.type)
+        setPrice(game.price)
+    }),[game];
 
     function btnLixoHandler() {
         setVisible(true);
@@ -40,11 +49,11 @@ const CartCard: React.FC<PropsType> = ( {game, numbers} ) => {
                 <Ionicons name="trash-outline" size={30} color="#868686" />
             </BtnTrash>
             <ModalCart title={"Excluir Cartela"} continueHandler={ContinueDeleteHandler} closeHandler={closeModalHandler} visible={visible}>Tem certeza que deseja excluir essa cartela do carrinho?</ModalCart>
-            <NumbersContainer color={game.color}>
+            <NumbersContainer color={color}>
                 <Numbers>{numbers}</Numbers>
                 <InfoNumbersContainer>
-                    <GameType color={game.color}>{game.type}</GameType>
-                    <Price>{`${convertMoneyInReal(game.price)}`}</Price>
+                    <GameType color={color}>{type}</GameType>
+                    <Price>{`${convertMoneyInReal(price)}`}</Price>
                 </InfoNumbersContainer>
             </NumbersContainer>
         </Container>

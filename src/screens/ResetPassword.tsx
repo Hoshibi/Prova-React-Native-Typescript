@@ -19,7 +19,7 @@ export function ResetPassword({navigation}: any) {
     };
 
     function onBack() {
-        navigation.goBack()
+        navigation.push("Login");
     }
 
     React.useEffect(() => {

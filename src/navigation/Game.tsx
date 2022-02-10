@@ -25,7 +25,7 @@ function Game({navigation}: any) {
 
   function onLogin() {
     dispatch(gameActions.cleanCart());
-    navigation.navigate('Login')
+    navigation.push("Login");
   }
 
   return (

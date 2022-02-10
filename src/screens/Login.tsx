@@ -9,7 +9,7 @@ import { FormAuthContainer, Input, ResetPasswordLink } from '@components/index';
 export function Login({navigation}: any) {
 
   function onSignUp() {
-    navigation.navigate('Registration')
+    navigation.push('Registration')
   }
 
   const [email, setEmail] = useState('');
@@ -48,7 +48,7 @@ export function Login({navigation}: any) {
       try {
         const res = await authServices().loginUser(body);
         await AsyncStorage.setItem('token',res.data.token.token);
-        navigation.navigate('Logged');
+        navigation.push("Logged");
         return res
       }catch (error: any) {
         if(error.status === 401){
@@ -64,7 +64,7 @@ export function Login({navigation}: any) {
     <FormAuthContainer title='Authentication' btnGreenTitle='Log In' btnGrayTitle='Sign Up' back={false} onPressBtnGreen={submitHandler} onPressBtnGray={onSignUp}>
       <Input dataCy="email-input" secureTextEntry={false} keyboardType='email-address' placeholder = "Email" autoCapitalize='none' onChange={emailChangeHandler}/>
       <Input dataCy="password-input" secureTextEntry={true} keyboardType='default' placeholder = "Password" autoCapitalize='none' onChange={passwordChangeHandler}/>
-      <ResetPasswordLink onPress={() => {navigation.navigate('ResetPassword')}}/>
+      <ResetPasswordLink onPress={() => {navigation.push('ResetPassword')}}/>
     </FormAuthContainer>
   );
 }

@@ -34,22 +34,22 @@ export function Registration({navigation}: any) {
 
     //onBack Handler
     function onBack() {
-        navigation.goBack();
+        navigation.push("Login");
     }
 
     //Submit Handler
     const submitHandler = async (event: any) => {
         event.preventDefault();
 
-        let errorMessage = "";
-        if(email.trim().length === 0) { errorMessage='Campo email vazio! Insira um email' }
+        let errorMessage = "";    
         if(password.trim().length === 0) { errorMessage='Campo password vazio! Insira uma senha' }
+        if(email.trim().length === 0) { errorMessage='Campo email vazio! Insira um email' }
         if(name.trim().length === 0) { errorMessage='Campo name vazio! Insira um nome' }
         if(email.trim().length === 0 && password.trim().length === 0 && name.trim().length === 0) { errorMessage='Todos os campos vazios! Insira os dados' }
         if(!isValidEmail(email) && email.trim().length > 0 && password.trim().length > 0 && name.trim().length > 0) { 
-        errorMessage='Insira um email válido. Ex: exemplo@luby.com.br' 
+            errorMessage='Insira um email válido. Ex: exemplo@luby.com.br' 
         }
-
+        
         if(!!isValidEmail(email) && email.trim().length > 0 && password.trim().length > 0 && name.trim().length > 0) { 
         let body = { email: email, password: password, name: name } 
         try {

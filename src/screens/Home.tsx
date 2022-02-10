@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
+import { RootStateOrAny, useSelector } from 'react-redux';
 
 import RecentGames from '@components/RecentGames';
 import gameServices from '@shared/services/game';
@@ -28,7 +28,8 @@ export function Home({navigation}:any) {
       betServices().listBet(gameToFilter).then(function (response:any) {setRecentGames(response.data)})
     });
     return unsubscribe;
-  }, [navigation]);
+  }, [navigation,gameToFilter, betServices]);
+
   
   useEffect(() => {
     getGameHandler();

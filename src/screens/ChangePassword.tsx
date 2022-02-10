@@ -16,7 +16,7 @@ export function ChangePassword({navigation}: any) {
     };
     
     function onBack() {
-        navigation.goBack()
+      navigation.push("ResetPassword");
     }
 
     React.useEffect(() => {
